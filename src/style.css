@@ -1,0 +1,334 @@
+/* Paleta de Colores Oficial y Derivados */
+:root {
+  --color-red: #FC0036;     /* Pantone 192 C */
+  --color-black: #000000;   /* Pantone Black 6 C */
+  --color-white: #FFFFFF;
+  --color-mint: #D1F0E5;    /* Tono menta pastel */
+  --font-main: 'Montserrat Alternates', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  overflow-x: hidden;
+}
+
+/* =========================================
+   NAVBAR - FLOTANTE Y TRANSPARENTE
+   ========================================= */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  z-index: 100;
+}
+
+.logo img {
+  width: 160px;
+  min-width: 85px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  margin-left: 10%; 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-red);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn-dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   SPLIT HERO - PANTALLA DIVIDIDA (50/50 EXACTO)
+   ========================================= */
+.split-hero {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.hero-left {
+  flex: 1;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+}
+
+.content-left {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 50px;
+}
+
+.content-left h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: var(--color-black);
+  margin-bottom: 1.5rem;
+}
+
+.content-left h1 span {
+  color: var(--color-red); /* Color Rojo Pantone 192 C del manual  */
+  -webkit-text-stroke: 0;   /* Eliminamos el borde para que el color sea sólido */
+}
+
+.content-left p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.hero-right {
+  flex: 1;
+  background-color: var(--color-mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  position: relative;
+}
+
+/* =========================================
+   GRÁFICO CENTRAL (EL ISOTIPO)
+   ========================================= */
+.center-graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.floating-cube {
+  width: 500px;
+  filter: drop-shadow(20px 30px 40px rgba(0,0,0,0.15));
+  animation: float-cube 6s ease-in-out infinite;
+}
+
+@keyframes float-cube {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* =========================================
+   TARJETAS FLOTANTES (GLASS)
+   ========================================= */
+.floating-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 20;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateX(-10px) translateY(-5px);
+}
+
+.card-1 { align-self: flex-end; }
+.card-2 { align-self: flex-start; margin-left: -20px; }
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--color-white);
+}
+
+.red-border { border: 2px solid var(--color-red); }
+.black-border { border: 2px solid var(--color-black); }
+
+.glass-card h3 {
+  font-weight: 900;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   MODIFICADORES PARA SECCIONES SECUNDARIAS
+   ========================================= */
+.bg-white { background-color: var(--color-white) !important; }
+.bg-mint { background-color: var(--color-mint) !important; }
+.bg-black { background-color: var(--color-black) !important; }
+.bg-red { background-color: var(--color-red) !important; }
+
+/* Ajuste para texto sobre fondo rojo */
+.text-white { color: var(--color-white) !important; }
+.text-white h1 { color: var(--color-white) !important; }
+.text-white p { color: #f0f0f0 !important; }
+.text-white h1 span {
+  color: transparent !important;
+  -webkit-text-stroke: 2px var(--color-white) !important;
+}
+
+.compact-cards { gap: 1.5rem !important; }
+.compact-cards .glass-card { padding: 1.2rem 1.5rem !important; }
+
+/* =========================================
+   OPTIMIZACIÓN PARA MÓVILES (RESPONSIVE)
+   ========================================= */
+
+/* Para Tablets y pantallas medianas (Menos de 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 2rem;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative; /* Evitamos que tape contenido en móvil si es fixed */
+  }
+
+  .nav-links {
+    margin-left: 0;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .split-hero {
+    flex-direction: column; /* Apilamos las mitades verticalmente */
+    min-height: auto;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+    padding: 60px 5%;
+    min-height: 50vh; /* Cada mitad ocupa media pantalla */
+  }
+
+  .content-left {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .content-left h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Tamaño fluido según la pantalla */
+    margin-bottom: 1rem;
+  }
+
+  .content-left p {
+    margin: 0 auto 2rem auto;
+  }
+
+  .center-graphic {
+    display: none; /* Ocultamos el cubo para que no estorbe al leer */
+  }
+
+  .floating-cards-container {
+    max-width: 100%;
+    align-items: center; /* Centramos las tarjetas */
+  }
+
+  .glass-card {
+    width: 90%;
+    max-width: 350px;
+    margin-left: 0 !important; /* Quitamos desfases laterales */
+    align-self: center !important;
+  }
+}
+
+/* Para Celulares Pequeños (Menos de 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-dark {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .content-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .glass-card {
+    padding: 1.5rem;
+  }
+
+  .glass-card h3 {
+    font-size: 1.1rem;
+  }
+}
